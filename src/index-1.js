@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RateCalculator from './components/rate-calculator';
+import Surprise from './components/surprise';
 import './index.css';
 
 ReactDOM.render(
-  <RateCalculator />,
+  <Surprise />,
   document.getElementById('root')
 );
