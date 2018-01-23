@@ -10,6 +10,8 @@ export default function SearchForm(props) {
                 id="search"
                 name="search"
                 placeholder="Dale Cooper"
+                value={props.inputValue}
+                onChange={e => props.onInput(e.currentTarget.value)}
             />
         </form>
     );

@@ -4,12 +4,34 @@ import SearchForm from './search-form';
 import CharacterCount from './character-count';
 import CharacterList from './character-list';
 
-export default function LiveSearch(props) {
-    return (
+export default class LiveSearch extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      characters: this.props.characters
+    }
+  }
+
+  characterFilter(input) {
+    console.log("Hi i am characterFilter",input);
+    //filter first based on input
+    //new list based on filter , pass to CharacterList with setState characters update
+    
+    let updatedCharacters = this.props.characters.filter(char => function(char) { return char.indexOf(input) > -1;});
+
+    return this.setState({characters: updatedCharacters}); 
+  }  
+
+  render(){
+    console.log(this.state.characters);
+      return (
         <div className="live-search">
-            <SearchForm />
-            <CharacterCount count={props.characters.length} />
-            <CharacterList characters={props.characters} />
+            <SearchForm onInput={(input) => this.characterFilter(input)}/>
+            <CharacterCount count={this.state.characters.length} />
+            <CharacterList characters={this.state.characters} />
         </div>
     );
-}
+
+  }
+}  
