@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LiveSearch from './components/live-search';
+import RateCalculator from './components/rate-calculator';
 import './index.css';
-import peaks from './peaks.json';
 
 ReactDOM.render(
-  <LiveSearch characters={peaks} />,
+  <RateCalculator />,
   document.getElementById('root')
 );
