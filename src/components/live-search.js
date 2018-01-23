@@ -14,11 +14,11 @@ export default class LiveSearch extends React.Component {
   }
 
   characterFilter(input) {
-    console.log("Hi i am characterFilter",input);
+    console.log("Hi i am character", this.props.characters);
     //filter first based on input
     //new list based on filter , pass to CharacterList with setState characters update
     
-    let updatedCharacters = this.props.characters.filter(char => function(char) { return char.indexOf(input) > -1;});
+    let updatedCharacters = this.props.characters.filter(char => char.name.toLowerCase().indexOf(input.toLowerCase()) > -1);
 
     return this.setState({characters: updatedCharacters}); 
   }  
